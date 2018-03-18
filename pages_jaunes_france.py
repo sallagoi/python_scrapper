@@ -9,7 +9,6 @@ Created on Mar 19 2018
 other contributers:
 '''
 from bs4 import BeautifulSoup
-
 import _pickle as pickle
 import re
 import random
@@ -132,13 +131,15 @@ class PJ(object):
                 result += adresse + ';'
                 phone_tmp = table.find_next("footer", {"class": "bi-contact"})
                 phone_tmp = phone_tmp.attrs['id']
-                phone_tmp = phone_tmp.replace("bi-contact-", "")
-                phone = phone_tmp
+                phone = ''.join(list(phone_tmp.replace("bi-contact-", ""))[:10])
+                # phone_tmp = list(phone_tmp)
+                # phone = phone_tmp[:10]
                 result += phone + ''
                 result += '\n'     
             except :
                 pass
-            pickle.dump(result.encode('utf-8'), file,)
+            # pickle.dump(result.encode('utf-8'), file,)
+            file.write(result.encode('utf-8'))
         return True
     
         
@@ -168,8 +169,8 @@ class PJ(object):
     
 # When run as a script, take all arguments as a search query and run it.
 if __name__ == "__main__":    
-    prof = open("sallagoity.txt", "wb")    
-    query = 'sallagoity'
+    prof = open("pulido.csv", "wb")    
+    query = 'pulido'
     location = 'bayonne'
     proximite = 0
     pj = PJ()
