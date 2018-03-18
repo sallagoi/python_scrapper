@@ -168,8 +168,8 @@ class PJ(object):
     
 # When run as a script, take all arguments as a search query and run it.
 if __name__ == "__main__":    
-    prof = open("dupont.txt", "wb")    
-    query = 'dupont'
+    prof = open("sallagoity.txt", "wb")    
+    query = 'sallagoity'
     location = 'bayonne'
     proximite = 0
     pj = PJ()
